@@ -1,4 +1,3 @@
-// import { defaults } from 'gh-pages';
 import './sass/main.scss';
 // import debounce from 'lodash.debounce';
 import renderFormTempl from './templates/render-form.hbs';
