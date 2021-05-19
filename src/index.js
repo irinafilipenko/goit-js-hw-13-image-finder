@@ -3,6 +3,9 @@ import './sass/main.scss';
 import renderFormTempl from './templates/render-form.hbs';
 import NewsApiService from './js/apiService';
 import galleryTempl from './templates/gallery.hbs';
+import { error } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 
 const body = document.querySelector('body');
 body.insertAdjacentHTML('afterbegin', renderFormTempl());
@@ -26,10 +29,10 @@ function onSearch(e) {
   clearGalleryContainer();
   newApiService.query = e.currentTarget.elements.query.value;
   if (newApiService.query === '') {
-    return alert('error');
+    return onFetchError();
   }
   newApiService.resetPage();
-  newApiService.fetchArticles().then(onMakeGallery);
+  newApiService.fetchArticles().then(onMakeGallery).catch(onFetchError);
 
   refs.loadMoreBtn.classList.remove('is-hidden');
 }
@@ -50,5 +53,8 @@ function clearGalleryContainer() {
 //   left: 100,
 //   behavior: 'smooth',
 // });
-
-window.scrollTo(0, 1000);
+function onFetchError() {
+  error({
+    text: 'Please enter a valid request',
+  });
+}
