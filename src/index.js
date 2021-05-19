@@ -4,7 +4,6 @@ import './sass/main.scss';
 import renderFormTempl from './templates/render-form.hbs';
 import NewsApiService from './js/apiService';
 import galleryTempl from './templates/gallery.hbs';
-import galleryCardTempt from './templates/gallery-card.hbs';
 
 const body = document.querySelector('body');
 body.insertAdjacentHTML('afterbegin', renderFormTempl());
@@ -47,11 +46,10 @@ function clearGalleryContainer() {
   refs.createGalery.innerHTML = ' ';
 }
 
-// function onMakeGalleryCard(hits) {
+// window.scrollTo({
+//   top: 100,
+//   left: 100,
+//   behavior: 'smooth',
+// });
 
-// }
-
-// newApiService.fetchArticles().then(onMakeGalleryCard);
-
-let imgCardEl = document.querySelector('.images_card');
-console.log(imgCardEl);
+window.scrollTo(0, 1000);

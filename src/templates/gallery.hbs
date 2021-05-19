@@ -1,7 +1,36 @@
 {{#each this}}
-  <li class='images_card'>
-    <a href="{{webformatURL}}" rel='noopener noreferrer'>
-      <img src="{{webformatURL}}" alt="{{tags}}" width='480' />
+  <li>
+    <a href="{{largeImageURL}}" rel='noopener noreferrer'>
+      <div class='photo-card'>
+        <img src="{{webformatURL}}" alt="{{tags}}" />
+
+        <div class='stats'>
+          <p class='stats-item'>
+            <i class='material-icons'>
+              thumb_up
+            </i>
+            {{likes}}
+          </p>
+          <p class='stats-item'>
+            <i class='material-icons'>
+              visibility
+            </i>
+            {{views}}
+          </p>
+          <p class='stats-item'>
+            <i class='material-icons'>
+              comment
+            </i>
+            {{comments}}
+          </p>
+          <p class='stats-item'>
+            <i class='material-icons'>
+              cloud_download
+            </i>
+            {{downloads}}
+          </p>
+        </div>
+      </div>
     </a>
   </li>
 {{/each}}
