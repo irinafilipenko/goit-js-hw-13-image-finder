@@ -1,5 +1,5 @@
 import './sass/main.scss';
-// import debounce from 'lodash.debounce';
+
 import renderFormTempl from './templates/render-form.hbs';
 import NewsApiService from './js/apiService';
 import galleryTempl from './templates/gallery.hbs';
@@ -19,7 +19,6 @@ const refs = {
 };
 
 const newApiService = new NewsApiService();
-console.dir(newApiService);
 
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);

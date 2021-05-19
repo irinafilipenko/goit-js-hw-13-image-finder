@@ -14,6 +14,9 @@ export default class NewsApiService {
     return fetch(url)
       .then(response => response.json())
       .then(({ hits }) => {
+        if (hits.length === 0) {
+          onFetchError();
+        }
         this.incrementPage();
         return hits;
       });
