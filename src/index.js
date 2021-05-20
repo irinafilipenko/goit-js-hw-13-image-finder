@@ -6,6 +6,8 @@ import galleryTempl from './templates/gallery.hbs';
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 const body = document.querySelector('body');
 body.insertAdjacentHTML('afterbegin', renderFormTempl());
@@ -25,6 +27,7 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
   e.preventDefault();
+
   clearGalleryContainer();
   newApiService.query = e.currentTarget.elements.query.value;
   if (newApiService.query === '') {
@@ -42,18 +45,33 @@ function onLoadMore() {
 
 function onMakeGallery(hits) {
   refs.createGalery.insertAdjacentHTML('beforeend', galleryTempl(hits));
+  window.scrollTo({
+    top: document.documentElement.scrollHeight,
+    behavior: 'smooth',
+  });
 }
+
 function clearGalleryContainer() {
   refs.createGalery.innerHTML = ' ';
 }
 
-// window.scrollTo({
-//   top: 100,
-//   left: 100,
-//   behavior: 'smooth',
-// });
 function onFetchError() {
   error({
     text: 'Please enter a valid request',
   });
+}
+
+refs.createGalery.addEventListener('click', onContainerClick);
+
+function onContainerClick(event) {
+  event.preventDefault();
+
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+
+  const changeImg = `<img src=${event.target.dataset.source} alt="icon" />`;
+  const instance = basicLightbox.create(changeImg);
+
+  instance.show();
 }

@@ -1,8 +1,8 @@
 {{#each this}}
   <li class='gallery_item'>
-    <a href="{{largeImageURL}}" rel='noopener noreferrer' target='_blank'>
+    {{!-- <a href="{{largeImageURL}}" rel='noopener noreferrer' target='_blank'> --}}
       <div class='photo-card'>
-        <img src="{{webformatURL}}" alt="{{tags}}" />
+        <img  src="{{webformatURL}}" data-source={{largeImageURL}} alt="{{tags}}" />
 
         <div class='stats'>
           <p class='stats-item'>
