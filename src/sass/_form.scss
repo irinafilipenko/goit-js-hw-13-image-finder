@@ -1,0 +1,17 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.input {
+  margin-right: 20px;
+  text-align: center;
+  border-width: 0.5em;
+  border-color: #2196f3;
+}
+
+.input:focus {
+  border-color: darkblue;
+}
