@@ -38,23 +38,17 @@ function onSearch(e) {
 
 function onLoadMore() {
   newApiService.fetchArticles().then(onMakeGallery);
-  //   window.scrollTo({
+  // setTimeout(() =>{  window.scrollTo({
   //     top: document.documentElement.scrollHeight,
   //     behavior: 'smooth',
   // });
+
   setTimeout(() => {
     refs.loadMoreBtn.scrollIntoView({
       behavior: 'smooth',
       block: refs.loadMoreBtn.dataset.pos,
     });
   }, 1000);
-  //   setTimeout(() => {
-  //     window.scrollTo({
-  //       top: document.body.scrollHeight,
-  //       left: 0,
-  //       behavior: 'smooth',
-  //     });
-  //   }, 1000);
 }
 
 function onMakeGallery(hits) {
