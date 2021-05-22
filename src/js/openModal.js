@@ -8,7 +8,7 @@ function onContainerClick(event) {
     return;
   }
 
-  const changeImg = `<img src=${event.target.dataset.source} alt="icon" />`;
+  const changeImg = `<img src=${event.target.dataset.source} alt="${event.target.alt}" />`;
   const instance = basicLightbox.create(changeImg);
 
   instance.show();
