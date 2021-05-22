@@ -38,16 +38,32 @@ function onSearch(e) {
 
 function onLoadMore() {
   newApiService.fetchArticles().then(onMakeGallery);
+  //   window.scrollTo({
+  //     top: document.documentElement.scrollHeight,
+  //     behavior: 'smooth',
+  //   });
+  //   refs.loadMoreBtn.scrollIntoView({
+  //     behavior: 'smooth',
+  //     block: refs.loadMoreBtn.dataset.pos,
+  //   });
 }
 
 function onMakeGallery(hits) {
   refs.createGalery.insertAdjacentHTML('beforeend', galleryTempl(hits));
-  window.scrollTo({
-    top: document.documentElement.scrollHeight,
-    behavior: 'smooth',
-  });
+  //   window.scrollTo({
+  //     top: document.documentElement.scrollHeight,
+  //     behavior: 'smooth',
+  //   });
+
+  //   refs.loadMoreBtn.scrollIntoView({
+  //     behavior: 'smooth',
+  //     block: refs.loadMoreBtn.dataset.pos,
+  //   });
 }
 
 function clearGalleryContainer() {
   refs.createGalery.innerHTML = ' ';
 }
+
+// const buttonEl = document.querySelectorAll('button');
+console.log(refs.loadMoreBtn.dataset.pos);
