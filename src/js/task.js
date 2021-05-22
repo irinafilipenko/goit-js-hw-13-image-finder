@@ -33,7 +33,7 @@ function onSearch(e) {
   newApiService.resetPage();
   newApiService.fetchArticles().then(onMakeGallery).catch(onFetchError);
 
-  refs.loadMoreBtn.classList.remove('is-hidden');
+  setTimeout(() => refs.loadMoreBtn.classList.remove('is-hidden'), 1000);
 }
 
 function onLoadMore() {
