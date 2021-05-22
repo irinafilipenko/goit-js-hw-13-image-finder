@@ -38,35 +38,20 @@ function onSearch(e) {
 
 function onLoadMore() {
   newApiService.fetchArticles().then(onMakeGallery);
-  // setTimeout(() =>{  window.scrollTo({
-  //     top: document.documentElement.scrollHeight,
-  //     behavior: 'smooth',
-  // });
 
+  const totalScrollHeight = refs.createGalery.clientHeight + 80;
   setTimeout(() => {
-    refs.loadMoreBtn.scrollIntoView({
+    window.scrollTo({
+      top: totalScrollHeight,
       behavior: 'smooth',
-      block: refs.loadMoreBtn.dataset.pos,
     });
-  }, 1000);
+  }, 500);
 }
 
 function onMakeGallery(hits) {
   refs.createGalery.insertAdjacentHTML('beforeend', galleryTempl(hits));
-  //   window.scrollTo({
-  //     top: document.documentElement.scrollHeight,
-  //     behavior: 'smooth',
-  //   });
-
-  //   refs.loadMoreBtn.scrollIntoView({
-  //     behavior: 'smooth',
-  //     block: refs.loadMoreBtn.dataset.pos,
-  //   });
 }
 
 function clearGalleryContainer() {
   refs.createGalery.innerHTML = ' ';
 }
-
-// const buttonEl = document.querySelectorAll('button');
-console.log(refs.loadMoreBtn.dataset.pos);
