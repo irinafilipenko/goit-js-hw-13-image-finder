@@ -27,7 +27,7 @@ function onSearch(e) {
 
   clearGalleryContainer();
   newApiService.query = e.currentTarget.elements.query.value;
-  if (newApiService.query === '') {
+  if (newApiService.query.trim() === '') {
     return onFetchError();
   }
   newApiService.resetPage();
